@@ -7,14 +7,14 @@ class AddUserInfor extends React.Component {
     age: "",
   };
 
-  handleOnChange(event) {
+  handleOnChangeName(event) {
     this.setState({
       name: event.target.value,
     });
   }
 
   handleOnSubmit(event) {
-    event.preventDefault();
+    event.preventDefault(); //chặn reload browser
 
     this.props.handleAddNewUser({
       id: Math.floor(Math.random() * 100) + 1 + "-random",
@@ -32,14 +32,14 @@ class AddUserInfor extends React.Component {
   render() {
     return (
       <div>
-        My name is {this.state.name} and I'm from {this.state.address} and I'm{" "}
+        My name is {this.state.name} and I'm from {this.state.address} and I'm
         {this.state.age} years old.
         <form onSubmit={(event) => this.handleOnSubmit(event)}>
           <label>Your name:</label>
           <input
             value={this.state.name}
             type="text"
-            onChange={(event) => this.handleOnChange(event)}
+            onChange={(event) => this.handleOnChangeName(event)}
           />
 
           <label>Your age:</label>
